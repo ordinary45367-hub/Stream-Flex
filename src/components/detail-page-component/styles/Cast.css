@@ -1,0 +1,26 @@
+.cast-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  flex-wrap: wra;
+  justify-content: space-evenly;
+}
+.cast-card {
+  width: 180px;
+  flex-shrink: 0;
+}
+
+p {
+  margin-bottom: 0;
+}
+.view {
+  text-decoration: underline;
+  color: rgb(13, 110, 253);
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.view:active .view:hover {
+  opacity: 1;
+}

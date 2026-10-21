@@ -1,0 +1,250 @@
+.genres-page {
+  min-height: 100vh;
+  padding: 110px 5% 60px;
+  color: #fff;
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(229, 9, 20, 0.13), transparent 40%),
+    #08090d;
+}
+
+.genres-header {
+  max-width: 720px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.genres-eyebrow {
+  color: #f04452;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.genres-header h1 {
+  margin: 14px 0;
+  font-size: clamp(2.2rem, 5vw, 3.7rem);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+.genres-header h1 span {
+  color: #e50914;
+}
+
+.genres-header p {
+  max-width: 550px;
+  margin: 0 auto;
+  color: #a1a1aa;
+  line-height: 1.7;
+}
+
+.genres-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.genre-card {
+  --accent: #ef4444;
+  --glow: rgba(239, 68, 68, 0.2);
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 0;
+  min-height: 125px;
+  padding: 22px 18px;
+  overflow: hidden;
+  text-align: left;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  background: linear-gradient(120deg, var(--glow), rgba(17, 17, 24, 0.96) 75%);
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.genre-card::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  right: -40px;
+  bottom: -55px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.13;
+  filter: blur(25px);
+  pointer-events: none;
+}
+
+.genre-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 30px var(--glow);
+}
+
+.genre-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.genre-icon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 55px;
+  height: 55px;
+  color: var(--accent);
+  border-radius: 13px;
+  background: var(--glow);
+}
+
+.genre-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+
+.genre-name {
+  font-size: 1rem;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+
+.genre-subtitle {
+  color: #a1a1aa;
+  font-size: 0.76rem;
+}
+
+.genre-arrow {
+  margin-left: auto;
+  align-self: flex-start;
+  color: var(--accent);
+  font-size: 1.2rem;
+  opacity: 0.7;
+  transition: transform 0.25s ease;
+}
+
+.genre-card:hover .genre-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* Genre accent colors */
+.genre-card.red {
+  --accent: #ff4757;
+  --glow: rgba(255, 71, 87, 0.17);
+}
+
+.genre-card.orange {
+  --accent: #fb923c;
+  --glow: rgba(251, 146, 60, 0.17);
+}
+
+.genre-card.yellow {
+  --accent: #facc15;
+  --glow: rgba(250, 204, 21, 0.15);
+}
+
+.genre-card.green {
+  --accent: #34d399;
+  --glow: rgba(52, 211, 153, 0.15);
+}
+
+.genre-card.blue {
+  --accent: #60a5fa;
+  --glow: rgba(96, 165, 250, 0.17);
+}
+
+.genre-card.cyan {
+  --accent: #22d3ee;
+  --glow: rgba(34, 211, 238, 0.15);
+}
+
+.genre-card.gray {
+  --accent: #d1d5db;
+  --glow: rgba(209, 213, 219, 0.12);
+}
+
+.genre-card.purple {
+  --accent: #a78bfa;
+  --glow: rgba(167, 139, 250, 0.17);
+}
+
+.genre-card.dark {
+  --accent: #fb7185;
+  --glow: rgba(190, 24, 93, 0.2);
+}
+
+.genre-card.pink {
+  --accent: #f472b6;
+  --glow: rgba(244, 114, 182, 0.17);
+}
+
+/* Tablets */
+@media (max-width: 1000px) {
+  .genres-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .genre-card {
+    padding: 18px 14px;
+    gap: 11px;
+  }
+}
+
+/* Phones */
+@media (max-width: 650px) {
+  .genres-page {
+    padding: 95px 16px 40px;
+  }
+
+  .genres-header {
+    margin-bottom: 28px;
+  }
+
+  .genres-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .genre-card {
+    min-height: 115px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .genre-icon {
+    width: 43px;
+    height: 43px;
+  }
+
+  .genre-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .genre-arrow {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .genre-name {
+    font-size: 0.9rem;
+  }
+
+  .genre-subtitle {
+    font-size: 0.7rem;
+  }
+}

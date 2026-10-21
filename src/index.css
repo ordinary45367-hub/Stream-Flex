@@ -1,0 +1,26 @@
+body {
+  background-color: black;
+  color: white;
+  margin: 0;
+  background: #05070b;
+  color: #f5f5f5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+img {
+  max-width: 100% !important;
+  max-height: 100%;
+}
+ody,
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
