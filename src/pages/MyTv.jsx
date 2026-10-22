@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { MovieGrid } from "../components/Search-Page/ResultGrid";
 import { Navbar } from "../components/Navbar";
-import { HeroBanner } from "../components/detail-page-component/HeroBanner";
 import { loadTVShows } from "../services/api";
 
 export function TvShows() {

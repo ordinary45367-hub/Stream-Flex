@@ -1,7 +1,5 @@
-// import { useNavigate } from "react-router";
 import "./styles/HeroBanner.css";
 export function HeroBanner({ movie }) {
-  // const navigate = useNavigate();
   console.log(movie);
 
   return (
@@ -29,7 +27,6 @@ export function HeroBanner({ movie }) {
               <p className="overview">{movie?.overview}</p>
               <div className="btn-wrapper">
                 <a
-                  // href={`https://vidlink.pro/embed/movie/${movie.id}`}
                   href={`https://vidsrc.sh/embed/movie?tmdb=${movie?.id}`}
                   className="wath-movie-btn btn btn-danger"
                 >

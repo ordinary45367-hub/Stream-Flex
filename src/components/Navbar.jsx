@@ -1,57 +1,77 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router";
 import "./Navbar.css";
-import profile from "../assets/images/user.png";
+
 export function Navbar() {
   const [input, setInput] = useState("");
-  const [humbergerMenu, setHumbergerMenu] = useState(false);
+  const [hamburgerMenu, setHamburgerMenu] = useState(false);
   const navigate = useNavigate();
-  function searchMovie() {
-    navigate(`/search?query=${encodeURIComponent(input)}`);
-    console.log(input);
+
+  function handleSearch(e) {
+    e?.preventDefault();
+    if (input.trim()) {
+      navigate(`/search?query=${encodeURIComponent(input)}`);
+      setHamburgerMenu(false); // Close mobile menu on search
+    }
   }
+
+  function handleKeyDown(e) {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  }
+
   return (
-    <header>
-      <nav>
+    <header className="navbar-header">
+      <nav className="navbar-container">
+        {/* Logo */}
         <div className="avatar-logo">
-          <h1>STREAMFLIX</h1>
+          <Link to="/">
+            <h1>STREAMFLIX</h1>
+          </Link>
         </div>
+
+        {/* Navigation Links */}
         <div className="nav-links">
-          <ul className={humbergerMenu ? "active" : ""}>
+          <ul className={hamburgerMenu ? "active" : ""}>
             <li>
-              <Link to={`/`}>Home</Link>
+              <Link to="/" onClick={() => setHamburgerMenu(false)}>
+                Home
+              </Link>
             </li>
             <li>
-              <Link to={`/tv`}>Tv Shows</Link>
+              <Link to="/tv" onClick={() => setHamburgerMenu(false)}>
+                TV Shows
+              </Link>
             </li>
             <li>
-              <Link to={`/genres`}>Geners</Link>
+              <Link to="/genres" onClick={() => setHamburgerMenu(false)}>
+                Genres
+              </Link>
             </li>
           </ul>
         </div>
+
+        {/* Right Section: Search & Hamburger */}
         <div className="right-section">
           <div className="search-box">
             <input
               value={input}
-              onChange={(e) => {
-                setInput(e.target.value);
-              }}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
               type="text"
               className="search-input"
-              placeholder="search movie"
+              placeholder="Search movies..."
             />
-            <button onClick={searchMovie}>
+            <button onClick={handleSearch} aria-label="Search">
               <i className="fa-solid fa-magnifying-glass"></i>
             </button>
           </div>
-          <div>
-            <img src={profile} alt="" />
-          </div>
+
           <div
-            className="humberger-menu"
-            onClick={() => {
-              setHumbergerMenu((prev) => !prev);
-            }}
+            className={`hamburger-menu ${hamburgerMenu ? "open" : ""}`}
+            onClick={() => setHamburgerMenu((prev) => !prev)}
+            aria-label="Toggle Navigation"
           >
             <span></span>
             <span></span>

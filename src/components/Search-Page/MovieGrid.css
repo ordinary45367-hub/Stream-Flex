@@ -15,10 +15,7 @@
   gap: 10px;
   margin-left: 5px;
 }
-.movie-card {
-}
-.movie-poster {
-}
+
 @media (max-width: 900px) {
   .hero-banner-search {
     height: 500px;

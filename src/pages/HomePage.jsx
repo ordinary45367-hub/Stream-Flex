@@ -4,11 +4,8 @@ import { NowPlayingMovies } from "../components/home-Page-Components/NowPlayingM
 import { PopularMovies } from "../components/home-Page-Components/PopularMovies";
 import { UpcomingMovies } from "../components/home-Page-Components/UpcomingMovies";
 import { TopRatedMovies } from "../components/home-Page-Components/TopRatedMovies";
-// import { getTVShowWithAllEpisodes, loadTVShows } from "../services/api";
-export function HomePage() {
-  // getTVShowWithAllEpisodes();
-  // loadTVShows();
 
+export function HomePage() {
   return (
     <>
       <Navbar />
