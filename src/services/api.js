@@ -63,7 +63,7 @@ export async function getMovieGenres() {
   }
 }
 
-getMovieGenres();
+// getMovieGenres();
 
 export async function getMoviesByGenre(genreId, page) {
   try {
@@ -75,7 +75,7 @@ export async function getMoviesByGenre(genreId, page) {
         page: page,
       },
     });
-    console.log(response.data.results);
+    // console.log(response.data.results);
     return response.data.results;
   } catch (error) {
     console.error(`Error fetching movies by genre ID ${genreId}:`, error);
