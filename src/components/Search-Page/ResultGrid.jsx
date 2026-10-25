@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { Play } from "lucide-react";
-import { IMAGE_BASE_URL } from "../../services/api";
+// import { IMAGE_BASE_URL } from "../../services/api";
 import "./MovieGrid.css";
 export function MovieGrid({ movie, tv }) {
   return (
@@ -28,27 +28,29 @@ export function MovieGrid({ movie, tv }) {
           </a>
         </div>
       </section>
-      <div className="movie-grid-wrapper-search mb-5 justify-content-center">
-        {movie
-          .filter((movie) => {
-            return movie.profile_path !== null;
-          })
-          .map((movie, index) => {
-            return (
-              <div className="movie-card  " key={index}>
-                <Link to={`/${tv ? "tv" : "details"}/${movie.id}`}>
-                  <img
-                    className="movie-poster card-img-tp"
-                    src={`${IMAGE_BASE_URL}${movie.poster_path}`}
-                    alt=""
-                  />
-                </Link>
+      <div className="">
+        <div className="movie-grid mb-5">
+          {movie
+            .filter((movie) => {
+              return movie.profile_path !== null;
+            })
+            .map((movie, index) => {
+              return (
+                <div className="movie-card" key={index}>
+                  <Link to={`/${tv ? "tv" : "details"}/${movie.id}`}>
+                    <img
+                      className="movie-poster "
+                      src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                      alt=""
+                    />
+                  </Link>
 
-                <p className="movie-card-title">{movie.title}</p>
-                <span>{movie.release_date}</span>
-              </div>
-            );
-          })}
+                  <p className="movie-card-title">{movie.title}</p>
+                  <span>{movie.release_date}</span>
+                </div>
+              );
+            })}
+        </div>
       </div>
     </>
   );

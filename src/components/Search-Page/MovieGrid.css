@@ -7,17 +7,40 @@
   background-position: top;
   background-size: cover;
 }
-.movie-grid-wrapper-search {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-left: 5px;
-}
 
 @media (max-width: 900px) {
   .hero-banner-search {
     height: 500px;
   }
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+.movie-card {
+  width: 100%;
+}
+.movie-poster {
+  width: 100%;
+  height: 480p;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.25s ease-in-out;
+}
+.movie-poster:hover {
+  transform: scale(1.05);
+}
+.movie-card-title {
+  font-weight: 600;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  color: #fff;
+  white-space: nowrap;
+
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
