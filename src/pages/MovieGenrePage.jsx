@@ -6,17 +6,9 @@ import { Navbar } from "../components/Navbar";
 export function MovieGenrePage() {
   const [movie, setMovie] = useState([]);
   const [page, setPages] = useState(1);
-  const { id, name } = useParams();
+  const { id } = useParams();
   useEffect(() => {
     const loadMovie = async () => {
-      // let promises = [];
-      // for (let i = 1; i < 6; i++) {
-      //   promises.push(getMoviesByGenre(id, i));
-      // }
-
-      // const allPage = await Promise.all(promises);
-      // const data = allPage.flatMap((page) => page);
-      // console.log(allPage);
       const data = await getMoviesByGenre(id, page);
       setMovie(data);
     };
@@ -24,10 +16,10 @@ export function MovieGenrePage() {
   }, [id]);
   async function addPage() {
     const nextPage = page + 1;
-    const pages = await getMoviesByGenre(id, nextPage);
+    const moreMovies = await getMoviesByGenre(id, nextPage);
 
     setMovie((prev) => {
-      return [...prev, pages].flatMap((page) => page);
+      return [...prev, moreMovies].flatMap((page) => page);
     });
 
     setPages(nextPage);
@@ -38,9 +30,7 @@ export function MovieGenrePage() {
       <Navbar />
 
       <MovieGrid movie={movie} />
-      {/* <button onClick={addPage} className="  p-3 mx-auto">
-        {name}
-      </button> */}
+
       <div class="load-more-container">
         <button onClick={addPage} className="load-more-btn">
           <span>Show More</span>

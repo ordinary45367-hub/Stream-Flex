@@ -219,9 +219,16 @@
 
   .search-input {
     width: 100px;
+    font-size: large;
   }
 
   .search-input:focus {
     width: 120px;
   }
+}
+.search-box-tv {
+  margin-top: 77px !important;
+}
+.search-box-tv button i {
+  font-size: 17px;
 }

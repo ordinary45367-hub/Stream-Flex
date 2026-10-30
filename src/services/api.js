@@ -5,9 +5,15 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 export const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w185";
 
 export async function loadMovies(gener) {
+  const value = gener.startsWith("trending");
   try {
     const response = await axios.get(
-      `${base_URI}/movie/${gener}?api_key=${API_KEY}`,
+      `${base_URI}${value ? "/trending/movie/day" : `/movie/${gener}`}`,
+      {
+        params: {
+          api_key: API_KEY,
+        },
+      },
     );
 
     return response.data.results;
@@ -17,12 +23,13 @@ export async function loadMovies(gener) {
   }
 }
 
-export async function movieDetails(id) {
+export async function movieDetails(id, page = 1) {
   try {
     const response = await axios.get(`${base_URI}/movie/${id}`, {
       params: {
         api_key: API_KEY,
         append_to_response: "credits,recommendations,videos",
+        page: page,
       },
     });
     return response.data;
@@ -32,12 +39,33 @@ export async function movieDetails(id) {
   }
 }
 
-export async function searchMovie(title) {
+export async function loadRecommendations(movieId, page = 1) {
   try {
     const response = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}`,
+      `${base_URI}/movie/${movieId}/recommendations`,
       {
-        params: { query: title },
+        params: {
+          api_key: API_KEY,
+          page: page,
+        },
+      },
+    );
+    return response.data; // Returns { page, results: [...], total_pages, total_results }
+  } catch (error) {
+    console.error("Error loading recommendations:", error);
+    throw error;
+  }
+}
+
+export async function searchMovie(title, tv = false, page = 1) {
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/search/${tv ? "tv" : "movie"}?api_key=${API_KEY}`,
+      {
+        params: {
+          query: title,
+          page: page,
+        },
       },
     );
     console.log(response.data);
@@ -86,13 +114,13 @@ export async function getMoviesByGenre(genreId, page) {
 // ***********************************************************************//
 //              AFTER MY API
 // ************************************************************************//
-export async function loadTVShows(category = "popular") {
+export async function loadTVShows(category = "popular", page = 1) {
   try {
     const response = await axios.get(`${base_URI}/tv/${category}`, {
       params: {
         api_key: API_KEY,
         language: "en-US",
-        page: 1,
+        page: page,
       },
     });
     console.log(response.data.results);

@@ -6,7 +6,7 @@ export function RecommendationMovie({ movie }) {
       <section className="cast-section p-2">
         <div>
           <h1>Simmilar Movies</h1>
-          <div className="cast-wrapper d-flex gap-3 px-2 ">
+          <div className="recomendation-movie-wrapper ">
             {movie?.recommendations?.results
               .filter((movie) => {
                 return movie.profile_path !== null;

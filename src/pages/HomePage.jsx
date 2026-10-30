@@ -4,12 +4,14 @@ import { NowPlayingMovies } from "../components/home-Page-Components/NowPlayingM
 import { PopularMovies } from "../components/home-Page-Components/PopularMovies";
 import { UpcomingMovies } from "../components/home-Page-Components/UpcomingMovies";
 import { TopRatedMovies } from "../components/home-Page-Components/TopRatedMovies";
+import { TrendingMovies } from "../components/home-Page-Components/TrendingMovie";
 
 export function HomePage() {
   return (
     <>
       <Navbar />
       <HeroBanner />
+      <TrendingMovies />
       <NowPlayingMovies />
       <PopularMovies />
       <UpcomingMovies />

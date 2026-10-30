@@ -1,8 +1,14 @@
 import { Link } from "react-router";
 import { Play } from "lucide-react";
-// import { IMAGE_BASE_URL } from "../../services/api";
 import "./MovieGrid.css";
 export function MovieGrid({ movie, tv }) {
+  if (!movie) {
+    return (
+      <div>
+        <h1>please wait to load movies...</h1>
+      </div>
+    );
+  }
   return (
     <>
       <section
@@ -32,7 +38,7 @@ export function MovieGrid({ movie, tv }) {
         <div className="movie-grid mb-5">
           {movie
             .filter((movie) => {
-              return movie.profile_path !== null;
+              return movie.poster_path !== null;
             })
             .map((movie, index) => {
               return (
@@ -51,6 +57,7 @@ export function MovieGrid({ movie, tv }) {
               );
             })}
         </div>
+        <div class="load-more-container"></div>
       </div>
     </>
   );

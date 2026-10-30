@@ -1,7 +1,5 @@
 import "./styles/HeroBanner.css";
 export function HeroBanner({ movie }) {
-  console.log(movie);
-
   return (
     <>
       <section className="hero-section container-fluid py-4">

@@ -24,3 +24,32 @@ p {
 .view:active .view:hover {
   opacity: 1;
 }
+.recomendation-movie-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+.scroll-btn {
+  position: absolute;
+  z-index: 10;
+  top: 55%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 60px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  cursor: pointer;
+}
+
+.left-btn {
+  left: 0;
+}
+
+.right-btn {
+  right: 0;
+}
+.scroll-btn:hover {
+  background: rgba(220, 20, 60, 0.9);
+}

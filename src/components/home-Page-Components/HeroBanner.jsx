@@ -6,7 +6,7 @@ export function HeroBanner() {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     const fetchMovies = async () => {
-      const data = await loadMovies("popular");
+      const data = await loadMovies("trending");
       setMovies(data);
       // console.log(data);
     };
