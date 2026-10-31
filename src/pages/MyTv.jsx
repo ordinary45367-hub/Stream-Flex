@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
 import { MovieGrid } from "../components/Search-Page/ResultGrid";
 import { Navbar } from "../components/Navbar";
 import { loadTVShows } from "../services/api";
@@ -10,7 +9,6 @@ export function TvShows() {
   const [topRateds, setTopRated] = useState([]);
   const [currents, setCurrent] = useState([]);
   const [page, setPages] = useState(1);
-  const [input, setInput] = useState("");
 
   useEffect(() => {
     const fetchTvSeries = async () => {
@@ -25,41 +23,17 @@ export function TvShows() {
     };
     fetchTvSeries();
   }, []);
-  const navigate = useNavigate();
 
-  function handleSearch(e) {
-    e?.preventDefault();
-    if (input.trim()) {
-      navigate(`/search?query=${encodeURIComponent(input)}&tv=${"tv"}`);
-    }
-  }
-
-  function handleKeyDown(e) {
-    if (e.key === "Enter") {
-      handleSearch();
-    }
-  }
   return (
     <>
       <Navbar />
 
-      <div className="search-box  search-box-tv mx-5 mt-5 mb-4 p-2 px-3">
-        <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={handleKeyDown}
-          type="text"
-          className="search-input w-100"
-          placeholder="Search movies..."
-        />
-        <button onClick={handleSearch} aria-label="Search">
-          <i className="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </div>
+      <h1 style={{ fontSize: "clamp(2.2rem, 5vw, 3.7rem)", marginTop: "70px" }}>
+        Airing Today Tv Shows
+      </h1>
 
-      <h1 className="">Airing Today Tv Shows</h1>
       <MovieGrid movie={airingToday} tv={"tv"} />
-      <div class="load-more-container">
+      <div className="load-more-container">
         <button
           onClick={async () => {
             const nextPage = page + 1;
@@ -74,7 +48,7 @@ export function TvShows() {
         >
           <span>Show More</span>
           <svg
-            class="arrow-icon"
+            className="arrow-icon"
             xmlns="http://www.w3.org/2000/svg"
             width="18"
             height="18"
@@ -89,9 +63,12 @@ export function TvShows() {
           </svg>
         </button>
       </div>
-      <h1>Current on air Tv Shows</h1>
-      <MovieGrid movie={currents} tv={"tv"} />
-      <div class="load-more-container">
+
+      <h1 style={{ fontSize: "clamp(2.2rem, 5vw, 3.7rem)" }}>
+        Current on air Tv Shows
+      </h1>
+      <MovieGrid movie={currents} tv />
+      <div className="load-more-container">
         <button
           onClick={async () => {
             const nextPage = page + 1;
@@ -106,7 +83,7 @@ export function TvShows() {
         >
           <span>Show More</span>
           <svg
-            class="arrow-icon"
+            className="arrow-icon"
             xmlns="http://www.w3.org/2000/svg"
             width="18"
             height="18"
@@ -121,9 +98,12 @@ export function TvShows() {
           </svg>
         </button>
       </div>
-      <h1>Popular Tv Shows</h1>
+
+      <h1 style={{ fontSize: "clamp(2.2rem, 5vw, 3.7rem)" }}>
+        Popular Tv Shows
+      </h1>
       <MovieGrid movie={populars} tv={"tv"} />
-      <div class="load-more-container">
+      <div className="load-more-container">
         <button
           onClick={async () => {
             const nextPage = page + 1;
@@ -138,7 +118,7 @@ export function TvShows() {
         >
           <span>Show More</span>
           <svg
-            class="arrow-icon"
+            className="arrow-icon"
             xmlns="http://www.w3.org/2000/svg"
             width="18"
             height="18"
@@ -153,9 +133,12 @@ export function TvShows() {
           </svg>
         </button>
       </div>
-      <h1>Top Rated Tv Shows</h1>
+
+      <h1 style={{ fontSize: "clamp(2.2rem, 5vw, 3.7rem)" }}>
+        Top Rated Tv Shows
+      </h1>
       <MovieGrid movie={topRateds} tv={"tv"} />
-      <div class="load-more-container">
+      <div className="load-more-container">
         <button
           onClick={async () => {
             const nextPage = page + 1;
@@ -170,7 +153,7 @@ export function TvShows() {
         >
           <span>Show More</span>
           <svg
-            class="arrow-icon"
+            className="arrow-icon"
             xmlns="http://www.w3.org/2000/svg"
             width="18"
             height="18"

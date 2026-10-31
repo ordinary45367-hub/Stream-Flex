@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import "./styles/HeroBanner.css";
 export function HeroBanner({ movie }) {
   return (
@@ -24,14 +25,14 @@ export function HeroBanner({ movie }) {
               </p>
               <p className="overview">{movie?.overview}</p>
               <div className="btn-wrapper">
-                <a
-                  href={`https://vidsrc.sh/embed/movie?tmdb=${movie?.id}`}
+                <Link
+                  to={`/watch/Movie/${movie?.id}`}
                   className="wath-movie-btn btn btn-danger"
                 >
                   {" "}
                   <i className="fa-solid fa-play me-2"></i>
                   Watch Movie
-                </a>
+                </Link>
               </div>
             </div>
           </div>

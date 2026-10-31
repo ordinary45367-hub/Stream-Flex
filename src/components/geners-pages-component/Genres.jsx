@@ -13,10 +13,9 @@ import {
   Users,
   Music,
   Search,
-  // Rocket,
+  //Rocket,
   Clapperboard,
 } from "lucide-react";
-
 import "./styles/Genres.css";
 
 const genres = [
@@ -40,51 +39,44 @@ const genres = [
 
 export function Genres() {
   const navigate = useNavigate();
-
   function openGenre(genre) {
     navigate(`/genre/${genre.id}/${encodeURIComponent(genre.name)}`);
   }
-
   return (
-    <main className="genres-page">
-      <section className="genres-header">
-        <span className="genres-eyebrow">YOUR NEXT STORY STARTS HERE</span>
+    <>
+      <main>
+        <section className="header-section-genre">
+          <h1>
+            Explore <span>Genres</span>
+          </h1>
+          <p>Explore Different Kind Of Movies By generes</p>
+        </section>
+        <section className="genres-section">
+          <div className="genres-container genres-grid px-4">
+            {genres.map((genre) => {
+              const Icon = genre.icon;
+              return (
+                <button
+                  className={`genre-card ${genre.color}`}
+                  onClick={() => {
+                    openGenre(genre);
+                  }}
+                >
+                  <span className="genre-icon">
+                    <Icon size={30} strokeWidth={1.8} />
+                  </span>
+                  <span className="genre-card-content">
+                    <span className="genre-name">{genre.name}</span>
+                    <span className="genre-subtitle">Explore movies</span>
+                  </span>
 
-        <h1>
-          Explore <span>Genres</span>
-        </h1>
-
-        <p>
-          From heart-pounding action to unforgettable romance, discover movies
-          made for your mood.
-        </p>
-      </section>
-
-      <section className="genres-grid">
-        {genres.map((genre) => {
-          const Icon = genre.icon;
-
-          return (
-            <button
-              type="button"
-              className={`genre-card ${genre.color}`}
-              key={genre.id}
-              onClick={() => openGenre(genre)}
-            >
-              <span className="genre-icon">
-                <Icon size={30} strokeWidth={1.8} />
-              </span>
-
-              <span className="genre-card-content">
-                <span className="genre-name">{genre.name}</span>
-                <span className="genre-subtitle">Explore movies</span>
-              </span>
-
-              <span className="genre-arrow">↗</span>
-            </button>
-          );
-        })}
-      </section>
-    </main>
+                  <span className="genre-arrow">↗</span>
+                </button>
+              );
+            })}
+          </div>
+        </section>
+      </main>
+    </>
   );
 }

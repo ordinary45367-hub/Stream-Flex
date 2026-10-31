@@ -36,12 +36,12 @@ export function SearchPage() {
         <div>
           <h1 className="ms-3">Result for : {`${title}`}</h1>
         </div>
-        <MovieGrid movie={movie} />
-        <div class="load-more-container">
+        <MovieGrid movie={movie} tv={true} />
+        <div className="load-more-container">
           <button onClick={addPage} className="load-more-btn">
             <span>Show More</span>
             <svg
-              class="arrow-icon"
+              className="arrow-icon"
               xmlns="http://www.w3.org/2000/svg"
               width="18"
               height="18"

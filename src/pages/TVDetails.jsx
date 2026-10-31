@@ -21,6 +21,8 @@ export default function TVDetails() {
 
       try {
         const data = await getTVShowWithEpisodes(id);
+        console.log(data);
+
         if (!cancelled) {
           setShow(data);
           const first = data.seasons?.find(

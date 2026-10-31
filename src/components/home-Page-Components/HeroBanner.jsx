@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router";
 import { loadMovies } from "../../services/api";
 import "./styles/HeroBanner.css";
 import { Play } from "lucide-react";
@@ -26,13 +27,10 @@ export function HeroBanner() {
         <h1 className="hero-title">{movies[0]?.title}</h1>
         <p className="overview">{movies[0]?.overview}</p>
         <p className="overview">{movies[0]?.release_date}</p>
-        <a
-          href={`https://vidsrc.sh/embed/movie?tmdb=${movies[0]?.id}`}
-          className="play-btn"
-        >
+        <Link to={`/watch/Movie/${movies[0]?.id}`} className="play-btn">
           <Play className="play-icon" size={18} fill="white" color="white" />
           <span>Play</span>{" "}
-        </a>
+        </Link>
       </div>
     </section>
   );

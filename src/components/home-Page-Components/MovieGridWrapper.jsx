@@ -20,9 +20,9 @@ export function MovieGridWrapper({ generes, genereName }) {
   return (
     <>
       <section className="movie-grid-wrapper position-relative">
-        <div class="section-header">
-          <h2 class="section-title">{genereName} </h2>
-          <div class="title-underline"></div>
+        <div className="section-header">
+          <h2 className="section-title">{genereName} </h2>
+          <div className="title-underline"></div>
         </div>
         <button
           onClick={scrollLeft}

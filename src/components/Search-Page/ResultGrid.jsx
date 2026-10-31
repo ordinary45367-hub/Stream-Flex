@@ -9,6 +9,8 @@ export function MovieGrid({ movie, tv }) {
       </div>
     );
   }
+  console.log(movie);
+
   return (
     <>
       <section
@@ -21,20 +23,16 @@ export function MovieGrid({ movie, tv }) {
           <h1 className="hero-title">{movie[0]?.title}</h1>
           <p className="overview">{movie[0]?.overview}</p>
           <p className="overview">{movie[0]?.release_date}</p>
-          <a
-            href={
-              tv
-                ? `/tv/${movie[0]?.id}`
-                : `https://vidsrc.sh/embed/movie?tmdb=${movie[0]?.id}`
-            }
+          <Link
+            to={tv ? `/tv/${movie[0]?.id}` : `/watch/Movie/${movie[0]?.id}`}
             className="play-btn"
           >
             <Play className="play-icon" size={18} fill="white" color="white" />
             <span>Play</span>{" "}
-          </a>
+          </Link>
         </div>
       </section>
-      <div className="">
+      <div>
         <div className="movie-grid mb-5">
           {movie
             .filter((movie) => {
@@ -43,7 +41,9 @@ export function MovieGrid({ movie, tv }) {
             .map((movie, index) => {
               return (
                 <div className="movie-card" key={index}>
-                  <Link to={`/${tv ? "tv" : "details"}/${movie.id}`}>
+                  <Link
+                    to={`/${movie.media_type === "tv" || tv ? "tv" : "details"}/${movie.id}`}
+                  >
                     <img
                       className="movie-poster "
                       src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -51,13 +51,15 @@ export function MovieGrid({ movie, tv }) {
                     />
                   </Link>
 
-                  <p className="movie-card-title">{movie.title}</p>
+                  <p className="movie-card-title">
+                    {tv ? movie.title || movie.name : movie.title}
+                  </p>
                   <span>{movie.release_date}</span>
                 </div>
               );
             })}
         </div>
-        <div class="load-more-container"></div>
+        <div className="load-more-container"></div>
       </div>
     </>
   );

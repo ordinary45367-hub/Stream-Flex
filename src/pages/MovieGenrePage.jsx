@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 import { useParams } from "react-router";
 import { MovieGrid } from "../components/Search-Page/ResultGrid";
 import { getMoviesByGenre } from "../services/api";
@@ -28,14 +29,25 @@ export function MovieGenrePage() {
   return (
     <>
       <Navbar />
-
+      <Link
+        to={`/genres`}
+        className="d-none ps-3 d-lg-inline-block"
+        style={{
+          marginTop: "60px",
+          maxWidth: "50px",
+          whiteSpace: "nowrap",
+          textDecoration: "none",
+        }}
+      >
+        ← Back to geners
+      </Link>
       <MovieGrid movie={movie} />
 
-      <div class="load-more-container">
+      <div className="load-more-container">
         <button onClick={addPage} className="load-more-btn">
           <span>Show More</span>
           <svg
-            class="arrow-icon"
+            className="arrow-icon"
             xmlns="http://www.w3.org/2000/svg"
             width="18"
             height="18"

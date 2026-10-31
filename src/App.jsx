@@ -6,6 +6,7 @@ import { GenersPage } from "./pages/GenersPage";
 // import TVShows from "./pages/TVShows";
 import TVDetails from "./pages/TVDetails";
 import WatchEpisode from "./pages/WatchEpisode";
+import WatchMovies from "./pages/WatchMovies";
 import { MovieGenrePage } from "./pages/MovieGenrePage";
 import { TvShows } from "./pages/MyTv";
 import "./App.css";
@@ -25,6 +26,7 @@ function App() {
           path="/watch/tv/:id/:season/:episode"
           element={<WatchEpisode />}
         />
+        <Route path="/watch/Movie/:id" element={<WatchMovies />} />
       </Routes>
     </>
   );

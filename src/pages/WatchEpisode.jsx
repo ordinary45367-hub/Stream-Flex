@@ -55,11 +55,6 @@ export default function WatchEpisode() {
             referrerPolicy="strict-origin-when-cross-origin"
           />
         </div>
-
-        <p className="player-note">
-          The video is provided by an external player. Availability and playback
-          behavior depend on that provider.
-        </p>
       </main>
     </>
   );

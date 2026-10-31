@@ -294,6 +294,7 @@
   border-radius: 14px;
   background: black;
   box-shadow: 0 20px 60px #0008;
+  margin-bottom: 150px;
 }
 
 .player-frame iframe {
