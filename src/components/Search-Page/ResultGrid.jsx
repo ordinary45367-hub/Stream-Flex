@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { Play } from "lucide-react";
+import { HeroBanner } from "../home-Page-Components/HeroBanner";
 import "./MovieGrid.css";
 export function MovieGrid({ movie, tv }) {
   if (!movie || movie.length === 0) {
@@ -13,27 +14,7 @@ export function MovieGrid({ movie, tv }) {
 
   return (
     <>
-      <section
-        className="hero-banner-search position-relative"
-        style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/original${movie[0]?.backdrop_path})`,
-        }}
-      >
-        <div className="hero-content">
-          <h1 className="hero-title">{movie?.name || movie[0]?.title}</h1>
-          <p className="overview">{movie[0]?.overview}</p>
-          <p className="overview">
-            {movie[0]?.first_air_date || movie[0]?.release_date}
-          </p>
-          <Link
-            to={tv ? `/tv/${movie[0]?.id}` : `/watch/Movie/${movie[0]?.id}`}
-            className="play-btn"
-          >
-            <Play className="play-icon" size={18} fill="white" color="white" />
-            <span>Play</span>{" "}
-          </Link>
-        </div>
-      </section>
+      <HeroBanner movies={movie} />
       <div>
         <div className="movie-result-grid mb-5">
           {movie

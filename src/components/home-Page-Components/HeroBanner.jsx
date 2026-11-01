@@ -3,31 +3,43 @@ import { Link } from "react-router";
 import { loadMovies } from "../../services/api";
 import "./styles/HeroBanner.css";
 import { Play } from "lucide-react";
-export function HeroBanner() {
-  const [movies, setMovies] = useState([]);
+export function HeroBanner({ movies, tv }) {
+  const [movie, setMovies] = useState([]);
+
   useEffect(() => {
     const fetchMovies = async () => {
-      const data = await loadMovies("trending");
-      setMovies(data);
+      if (movies && movies.length > 0) {
+        setMovies(movies);
+      } else {
+        const data = await loadMovies("trending");
+        setMovies(data);
+      }
       // console.log(data);
     };
     fetchMovies();
-  }, []);
+  }, [movies]);
 
   return (
-    <section className="hereo-banner-section">
-      <div className="hereo-banner">
-        <img
-          className="hero-image"
-          src={`https://image.tmdb.org/t/p/original${movies[0]?.backdrop_path}`}
-          alt=""
-        />
-      </div>
+    <section
+      className="hero-banner-search position-relative"
+      style={{
+        backgroundImage: `url(https://image.tmdb.org/t/p/original${movie[0]?.backdrop_path})`,
+      }}
+    >
       <div className="hero-content">
-        <h1 className="hero-title">{movies[0]?.title}</h1>
-        <p className="overview">{movies[0]?.overview}</p>
-        <p className="overview">{movies[0]?.release_date}</p>
-        <Link to={`/watch/Movie/${movies[0]?.id}`} className="play-btn">
+        <h1 className="hero-title">{movie[0]?.name || movie[0]?.title}</h1>
+        <p className="overview">{movie[0]?.overview}</p>
+        <p className="overview">
+          {movie[0]?.first_air_date || movie[0]?.release_date}
+        </p>
+        <Link
+          to={
+            movie[0]?.media_type === "tv"
+              ? `/tv/${movie[0]?.id}`
+              : `/watch/Movie/${movie[0]?.id}`
+          }
+          className="play-btn"
+        >
           <Play className="play-icon" size={18} fill="white" color="white" />
           <span>Play</span>{" "}
         </Link>
