@@ -28,7 +28,7 @@ export function MovieGrid({ generes }) {
               onClick={() => {
                 showInfo(movie.id);
               }}
-              className="movie-card  flex-shrink-0"
+              className="movie-row-card  flex-shrink-0"
               key={index}
             >
               <img

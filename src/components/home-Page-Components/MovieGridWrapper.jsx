@@ -39,7 +39,7 @@ export function MovieGridWrapper({ generes, genereName }) {
           <i className="fa-solid fa-chevron-right"></i>
         </button>
 
-        <div className="movie-grid " ref={rowRef}>
+        <div className="movie-row-grid " ref={rowRef}>
           <MovieGrid generes={generes} />
         </div>
       </section>

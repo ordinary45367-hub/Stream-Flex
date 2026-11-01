@@ -9,8 +9,7 @@ export function MovieGrid({ movie, tv }) {
       </div>
     );
   }
-  if (!movie) return <main className="tv-page">Loading series details...</main>;
-  // console.log(movie);
+  if (!movie) return <main className="tv-page">Loading Movies details...</main>;
 
   return (
     <>
@@ -36,14 +35,14 @@ export function MovieGrid({ movie, tv }) {
         </div>
       </section>
       <div>
-        <div className="movie-grid mb-5">
+        <div className="movie-result-grid mb-5">
           {movie
             .filter((movie) => {
               return movie.poster_path !== null;
             })
             .map((movie, index) => {
               return (
-                <div className="movie-card" key={index}>
+                <div className="movie-result-card" key={index}>
                   <Link
                     to={`/${movie.media_type === "tv" || tv ? "tv" : "details"}/${movie.id}`}
                   >

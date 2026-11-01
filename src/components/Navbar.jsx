@@ -68,15 +68,17 @@ export function Navbar() {
             </button>
           </div>
 
-          <div
+          <button
+            type="button"
             className={`hamburger-menu ${hamburgerMenu ? "open" : ""}`}
             onClick={() => setHamburgerMenu((prev) => !prev)}
-            aria-label="Toggle Navigation"
+            aria-label="Toggle navigation"
+            aria-expanded={hamburgerMenu}
           >
             <span></span>
             <span></span>
             <span></span>
-          </div>
+          </button>
         </div>
       </nav>
     </header>
