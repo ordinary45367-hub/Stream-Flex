@@ -35,6 +35,7 @@ export function DetailsPage() {
 
     setPages(nextPage);
   }
+  if (!movie) return <main className="tv-page">Loading series details...</main>;
   return (
     <>
       <Navbar />

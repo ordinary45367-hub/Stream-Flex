@@ -9,11 +9,13 @@
 .cast-card {
   width: 180px;
   flex-shrink: 0;
+  min-width: 0;
 }
 
 p {
   margin-bottom: 0;
 }
+
 .view {
   text-decoration: underline;
   color: rgb(13, 110, 253);
@@ -24,11 +26,56 @@ p {
 .view:active .view:hover {
   opacity: 1;
 }
-.recomendation-movie-wrapper {
+/* .recomendation-movie-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 20px;
+  gap: 16px;
 }
+.movie-recomendation-card {
+  min-width: 0;
+  width: 100%;
+}
+.movie-reommendation-title {
+  text-decoration: none;
+  color: white;
+  margin-top: 6px;
+  font-size: 15px;
+  line-height: 1.5;
+} */
+
+.recomendation-movie-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+.movie-recomendation-card {
+  min-width: 0;
+  width: 100%;
+}
+
+.movie-recomendation-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.movie-reommendation-title {
+  text-decoration: none;
+  color: white;
+  margin-top: 6px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.movie-recomendation-card a {
+  display: block;
+  text-decoration: none;
+}
+
 .scroll-btn {
   position: absolute;
   z-index: 10;
@@ -52,4 +99,9 @@ p {
 }
 .scroll-btn:hover {
   background: rgba(220, 20, 60, 0.9);
+}
+@media (min-width: 600px) {
+  .recomendation-movie-wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
 }

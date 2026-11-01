@@ -2,14 +2,15 @@ import { Link } from "react-router";
 import { Play } from "lucide-react";
 import "./MovieGrid.css";
 export function MovieGrid({ movie, tv }) {
-  if (!movie) {
+  if (!movie || movie.length === 0) {
     return (
       <div>
         <h1>please wait to load movies...</h1>
       </div>
     );
   }
-  console.log(movie);
+  if (!movie) return <main className="tv-page">Loading series details...</main>;
+  // console.log(movie);
 
   return (
     <>
@@ -20,9 +21,11 @@ export function MovieGrid({ movie, tv }) {
         }}
       >
         <div className="hero-content">
-          <h1 className="hero-title">{movie[0]?.title}</h1>
+          <h1 className="hero-title">{movie?.name || movie[0]?.title}</h1>
           <p className="overview">{movie[0]?.overview}</p>
-          <p className="overview">{movie[0]?.release_date}</p>
+          <p className="overview">
+            {movie[0]?.first_air_date || movie[0]?.release_date}
+          </p>
           <Link
             to={tv ? `/tv/${movie[0]?.id}` : `/watch/Movie/${movie[0]?.id}`}
             className="play-btn"

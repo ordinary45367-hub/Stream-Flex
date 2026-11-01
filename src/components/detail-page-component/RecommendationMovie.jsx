@@ -9,19 +9,21 @@ export function RecommendationMovie({ movie }) {
           <div className="recomendation-movie-wrapper ">
             {movie?.recommendations?.results
               .filter((movie) => {
-                return movie.profile_path !== null;
+                return movie.poster_path !== null;
               })
               .map((movie) => {
                 return (
-                  <div className="cast-card" key={movie.id}>
+                  <div className="movie-recomendation-card" key={movie.id}>
                     <Link to={`/details/${movie.id}`}>
                       <img
                         className="rounded"
                         src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`}
                         alt=""
                       />
+                      <p className="movie-reommendation-title">
+                        {movie.original_title}
+                      </p>
                     </Link>
-                    <p>{movie.original_title}</p>
                   </div>
                 );
               })}
