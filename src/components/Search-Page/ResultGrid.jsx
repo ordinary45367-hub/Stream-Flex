@@ -19,13 +19,13 @@ export function MovieGrid({ movie, tv }) {
         <div className="movie-result-grid mb-5">
           {movie
             .filter((movie) => {
-              return movie.poster_path !== null;
+              return movie.poster_path;
             })
             .map((movie, index) => {
               return (
                 <div className="movie-result-card" key={index}>
                   <Link
-                    to={`/${movie.media_type === "tv" || tv ? "tv" : "details"}/${movie.id}`}
+                    to={`/${movie.media_type === "tv" ? "tv" : "details"}/${movie.id}`}
                   >
                     <img
                       className="movie-poster "

@@ -7,6 +7,8 @@ export function HomePage() {
     <>
       <Navbar />
       <HeroBanner />
+      <MovieGridWrapper generes={"popular"} genereName={"Popular Movies"} />
+      <MovieGridWrapper generes={"upcoming"} genereName={"Upcoming Movies"} />
       <MovieGridWrapper
         generes={"trending"}
         genereName={"Trending Movie Of Days"}
@@ -15,8 +17,6 @@ export function HomePage() {
         generes={"now_playing"}
         genereName={"Now Playing In Teater"}
       />
-      <MovieGridWrapper generes={"popular"} genereName={"Popular Movies"} />
-      <MovieGridWrapper generes={"upcoming"} genereName={"Upcoming Movies"} />
       <MovieGridWrapper generes={"top_rated"} genereName={"Top Rated Movies"} />
     </>
   );

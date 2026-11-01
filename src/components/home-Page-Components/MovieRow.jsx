@@ -20,7 +20,7 @@ export function MovieGrid({ generes }) {
     <>
       {movies
         .filter((movie) => {
-          return movie.poster_path !== null;
+          return movie.poster_path;
         })
         .map((movie, index) => {
           return (

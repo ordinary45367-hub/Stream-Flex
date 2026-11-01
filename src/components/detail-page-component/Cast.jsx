@@ -42,7 +42,7 @@ export function Cast({ movie }) {
           >
             {movie?.credits?.cast
               .filter((cast) => {
-                return cast.profile_path !== null;
+                return cast.profile_path;
               })
               .map((cast) => {
                 return (
