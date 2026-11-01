@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import { getTVDetails } from "../services/api";
 import { Navbar } from "../components/Navbar";
 
-import "../components/TV.css";
-
+import "../components/tvshow-page-component/TV.css";
 export default function WatchEpisode() {
   const { id, season, episode } = useParams();
   const navigate = useNavigate();

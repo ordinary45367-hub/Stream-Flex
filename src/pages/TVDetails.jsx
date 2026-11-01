@@ -3,8 +3,7 @@ import { useNavigate, useParams } from "react-router";
 import { getTVShowWithEpisodes, getTVImage } from "../services/api";
 import { Navbar } from "../components/Navbar";
 
-import "../components/TV.css";
-
+import "../components/tvshow-page-component/TV.css";
 export default function TVDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -73,7 +72,16 @@ export default function TVDetails() {
               {" · "}
               {show.number_of_episodes} episodes
             </p>
-            <p className="tv-overview">
+            <p
+              className="tv-overview"
+              style={{
+                display: "-webkit-box",
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
               {show.overview || "No description is available for this series."}
             </p>
           </div>

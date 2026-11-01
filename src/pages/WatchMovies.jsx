@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import { movieDetails } from "../services/api";
 import { Navbar } from "../components/Navbar";
 
-import "../components/TV.css";
-
+import "../components/tvshow-page-component/TV.css";
 function WatchMovies() {
   const { id } = useParams();
   const navigate = useNavigate();

@@ -44,7 +44,7 @@ export function Genres() {
   }
   return (
     <>
-      <main>
+      <main className="main">
         <section className="header-section-genre">
           <h1>
             Explore <span>Genres</span>

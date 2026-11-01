@@ -1,4 +1,4 @@
-main {
+.main {
   margin-top: 150px;
 }
 .header-section-genre {
@@ -73,6 +73,9 @@ p {
 }
 
 .genre-name {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  text-overflow: ellipsis;
   font-size: 1rem;
   font-weight: 750;
   overflow-wrap: anywhere;
