@@ -10,7 +10,6 @@ function WatchMovies() {
   const navigate = useNavigate();
   const [showName, setShowName] = useState("");
 
-  //   const playerUrl = `https://vidsrc.sh/embed/movie/${encodeURIComponent(id)}`;
   const playerUrl = `https://vidsrc.sh/embed/movie?tmdb=${encodeURIComponent(id)}`;
 
   useEffect(() => {
